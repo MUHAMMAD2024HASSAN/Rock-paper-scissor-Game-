@@ -9,7 +9,9 @@
 .container{
     width: 100%;
     height: 100vh;
-    background-image: url(/images/bg-img.png);
+    background: linear-gradient(217deg, rgba(33, 40, 68, 0.37), rgba(0, 0, 0, 0.255) 771%),
+                linear-gradient(127deg, rgba(0, 203, 249, 0.861), rgba(6, 0, 0, 0.695) 70.71%),
+                linear-gradient(336deg, rgba(3, 25, 52, 0.898), rgba(0, 3, 7, 0.517) 70.71%);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -20,17 +22,18 @@
     align-items: center;
     justify-content: center;
     word-spacing: 2rem;
-    font-size: xx-large;
+    font-size: 60px;
     font-weight: 800;
     font-style: italic;
+    color: white;
+    background: linear-gradient(#27272742, #000000aa);;
 }
 
 .container .btn{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 22rem;
-    padding-top: 12rem;
+    gap: 6rem;
     cursor: pointer;
 }
 
@@ -44,7 +47,13 @@
     transition: 0.7s;
 }
 
+.container .btn button img{
+    padding-top: 5rem;
+    width: 200px;
+    height: 200px;
+}
+
 .container .btn button:hover{
  color: red;
- transform: scale(1.5) translateY(-10px);
+ transform: scale(1.5) translateY(-5px);
 }
