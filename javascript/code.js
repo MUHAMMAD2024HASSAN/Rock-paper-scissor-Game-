@@ -18,10 +18,17 @@ function pickComputerMove() {
     return computerMove;
 }
 
-function showCustomAlert(message) {
+function showCustomAlert(playerMove, computerMove, result) {
     const customAlert = document.getElementById('customAlert');
     const alertText = document.getElementById('alertText');
     const alertClose = document.getElementById('alertClose');
+
+
+    let message = `You chose: ${playerMove.toUpperCase()}\n`;
+    message += `Computer chose: ${computerMove.toUpperCase()}\n\n`;
+    message += result;
+
+    message += `\n\nScore:\nWins: ${score.wins} | Losses: ${score.loses} | Draws: ${score.draws}`;
 
     alertText.innerText = message;
 
@@ -38,42 +45,40 @@ function playGame(playerMove) {
 
     if (playerMove === "rock") {
         if (computerMove === "rock") {
-            result = "Game has drawn! 😄😊😅";
+            result = "It's a draw! 😄😊😅";
             score.draws++;
         } else if (computerMove === "paper") {
-            result = "Sorry, You're lost! 😒😒";
+            result = "Sorry, you lost! 😒😒";
             score.loses++;
         } else {
-            result = "Congratulations, You're Win! 🎉😊";
+            result = "Congratulations, you win! 🎉😊";
             score.wins++;
         }
     } else if (playerMove === "paper") {
         if (computerMove === "rock") {
-            result = "Congratulations, You're Win! 🎉😊";
+            result = "Congratulations, you win! 🎉😊";
             score.wins++;
         } else if (computerMove === "paper") {
-            result = "Game has drawn! 😄😊😅";
+            result = "It's a draw! 😄😊😅";
             score.draws++;
         } else {
-            result = "Sorry, You're lost! 😒😒";
+            result = "Sorry, you lost! 😒😒";
             score.loses++;
         }
     } else if (playerMove === "scissor") {
         if (computerMove === "rock") {
-            result = "Sorry, You're lost! 😒😒";
+            result = "Sorry, you lost! 😒😒";
             score.loses++;
         } else if (computerMove === "paper") {
-            result = "Congratulations, You're Win! 🎉😊";
+            result = "Congratulations, you win! 🎉😊";
             score.wins++;
         } else {
-            result = "Game has drawn! 😄😊😅";
+            result = "It's a draw! 😄😊😅";
             score.draws++;
         }
     }
 
-    const scoreText = `Wins: ${score.wins}\nLoses: ${score.loses}\nDraws: ${score.draws}`;
-    
-    showCustomAlert(`${result}\n${scoreText}`);
-    
+    showCustomAlert(playerMove, computerMove, result);
+
     localStorage.setItem('Score', JSON.stringify(score));
 }
