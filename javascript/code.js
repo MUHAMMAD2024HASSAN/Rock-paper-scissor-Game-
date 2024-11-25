@@ -18,6 +18,20 @@ function pickComputerMove() {
     return computerMove;
 }
 
+function showCustomAlert(message) {
+    const customAlert = document.getElementById('customAlert');
+    const alertText = document.getElementById('alertText');
+    const alertClose = document.getElementById('alertClose');
+
+    alertText.innerText = message;
+
+    customAlert.style.display = 'flex';
+
+    alertClose.onclick = function () {
+        customAlert.style.display = 'none';
+    };
+}
+
 function playGame(playerMove) {
     const computerMove = pickComputerMove();
     let result = "";
@@ -57,6 +71,9 @@ function playGame(playerMove) {
         }
     }
 
-    alert(`${result}\nWins: ${score.wins}\nLoses: ${score.loses}\nDraws: ${score.draws}`);
+    const scoreText = `Wins: ${score.wins}\nLoses: ${score.loses}\nDraws: ${score.draws}`;
+    
+    showCustomAlert(`${result}\n${scoreText}`);
+    
     localStorage.setItem('Score', JSON.stringify(score));
 }
